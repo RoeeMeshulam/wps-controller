@@ -1,0 +1,52 @@
+.query-history {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 35%;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.query-history .query-record {
+  font-size: 12px;
+  padding: 5px 18px;
+  background-color: #eee;
+  margin: 1px 12px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.query-history .query-record:hover {
+  background-color: #ddd;
+}
+
+.query-history .query-record .request-time {
+  float: right;
+  margin: 5px;
+}
+
+.query-history .query-record .content {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+.query-history .query-record .status-tag {
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+  color: white;
+  padding: 2px 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.query-history .query-record .title {
+  display: inline-block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: 0.5em;
+  font-weight: bold;
+}

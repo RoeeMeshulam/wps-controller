@@ -1,0 +1,34 @@
+.process-form .literal-text-input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: calc(100% - 55px);
+}
+
+.process-form .execute-button {
+  font-weight: bold;
+  margin-top: 12px;
+  background-color: #3b5998;
+  font-size: 15px;
+  color: white;
+  border: 0;
+  width: 100%;
+  padding: 20px;
+  border-radius: 0px;
+}
+
+.process-form .process-form-icon {
+  width: 30px;
+  padding: 8px 2px;
+  vertical-align: middle;
+}
+
+.process-form .layer-select {
+  display: inline-block;
+  width: calc(100% - 57px);
+  padding: 0 10px;
+}
