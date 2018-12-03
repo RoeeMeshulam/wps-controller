@@ -1,29 +1,27 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
+import React from 'react';
 
-import { Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
+import ToolsScreen from './components/ToolsScreen';
 
-import store from "./store";
-import App from "./App";
+import {
+  setQueryHistory,
+  getQueryHistory
+} from "./common/utils/queryHistoryStorage";
 
-import "./index.css";
-import registerServiceWorker from "./registerServiceWorker";
+class WpsController extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const messageBoxOptions = {
-  timeout: 5000,
-  position: "bottom center",
-  zIndex: 1000
-};
-
-render(
-  <AlertProvider template={AlertTemplate} {...messageBoxOptions}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </AlertProvider>,
-  document.getElementById("root")
-);
-
-registerServiceWorker();
+  render() {
+    return (
+      <ToolsScreen
+        addLayer={this.props.addLayer}
+        setQueryHistory={setQueryHistory}
+        getQueryHistory={getQueryHistory}
+        zoomToLayer={this.props.zoomToLayer}
+        getLayers={this.props.getLayers}
+        complexAsReference/>
+    );
+  }
+}
+export default WpsController;
