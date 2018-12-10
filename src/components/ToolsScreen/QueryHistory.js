@@ -30,6 +30,7 @@ export default class QueryHistory extends React.Component {
     super(props);
 
     this.onRecordClick = this.onRecordClick.bind(this);
+    this.numberToStr = this.numberToStr.bind(this);
   }
 
   onRecordClick(e) {
@@ -45,7 +46,12 @@ export default class QueryHistory extends React.Component {
     return <span className="status-tag" style={{backgroundColor:statusDisplay.color}}>{statusDisplay.text}</span>
   }
 
-  numberToStr = number => number === 0 ? 'No' : `${number}`
+  numberToStr(number) {
+    if(number === 0)
+      return 'No';
+
+    return`${number}`;
+  }
 
   render() {
     return (

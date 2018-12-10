@@ -5,17 +5,22 @@ import "./MimetypeDropdown.css";
 import FileFormats from "../../common/FileFormats";
 
 export default class MimetypeDropdown extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+   constructor(props) {
+     super(props);
 
-  state = {
-    isActive: false
-  };
+     this.state = {
+       isActive: false
+     };
 
-  toFocusElement = null;
+    this.toFocusElement = null;
+    this.onButtonClick = this.onButtonClick.bind(this);
+    this.getMimeTypeDsiplayName = this.getMimeTypeDsiplayName.bind(this);
+    this.onItemClick = this.onItemClick.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.onContentRef = this.onContentRef.bind(this);
+   }
 
-  onButtonClick = () => {
+  onButtonClick(){
     if (this.state.isActive) {
       this.setState({ isActive: false });
     } else {
@@ -35,7 +40,7 @@ export default class MimetypeDropdown extends React.Component {
     }
   }
 
-  onItemClick = event => {
+  onItemClick(event){
     const i = parseInt(
       event.currentTarget.id.replace("mimetype-menu-item-", ""),
       10
@@ -44,11 +49,11 @@ export default class MimetypeDropdown extends React.Component {
     this.setState({ isActive: false });
   };
 
-  onBlur = () => {
+  onBlur(){
     this.setState({ isActive: false });
   };
 
-  onContentRef = element => {
+  onContentRef(element){
     this.toFocusElement = element;
   };
 
