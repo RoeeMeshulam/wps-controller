@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "react-select";
 import Promise from "bluebird";
-import { withAlert } from "react-alert";
 
 import QueryHistory from "./QueryHistory";
 import "./ToolsScreen.css";
@@ -49,7 +48,7 @@ class ToolsScreen extends React.Component {
 
   loadCapabilies() {
     if (this.state.isLoading) {
-      this.props.alert.error("Error: Already loading processes list");
+      this.props.showAlert("Error: Already loading processes list");
       return;
     }
 
@@ -66,7 +65,7 @@ class ToolsScreen extends React.Component {
         });
       })
       .catch(() => {
-        this.props.alert.error(
+        this.props.showAlert(
           "Failed to load processes. Please try again later."
         );
         this.setState({ isLoading: false }); // todo handle error text
@@ -95,7 +94,7 @@ class ToolsScreen extends React.Component {
         });
       })
       .catch(err => {
-        this.props.alert.error(
+        this.props.showAlert(
           "Failed to load process. Please try again later."
         );
         this.setState({ isLoading: false });
@@ -195,7 +194,7 @@ class ToolsScreen extends React.Component {
       .catch(err => {
         this.setQuery(queryId, { status: Statuses.FAIL });
         this.setState({ processErrorMessage: err.message });
-        this.props.alert.error(
+        this.props.showAlert(
           `Failed in Process ${this.state.currentProcessData.title}`
         );
       })
@@ -388,4 +387,4 @@ class ToolsScreen extends React.Component {
   }
 }
 
-export default withAlert(ToolsScreen);
+export default ToolsScreen;

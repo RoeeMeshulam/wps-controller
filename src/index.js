@@ -20,9 +20,11 @@ class WpsController extends React.Component {
         getQueryHistory={getQueryHistory}
         zoomToLayer={this.props.zoomToLayer}
         getLayers={this.props.getLayers}
+        showAlert={this.props.showAlert}
         complexAsReference
       />
     );
   }
 }
+
 export default WpsController;
